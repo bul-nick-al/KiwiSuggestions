@@ -4,4 +4,10 @@
    <FileRef
       location = "group:KiwiSuggestions/KiwiSuggestions.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Suggestions/Suggestions.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CommonModels/CommonModels.xcodeproj">
+   </FileRef>
 </Workspace>

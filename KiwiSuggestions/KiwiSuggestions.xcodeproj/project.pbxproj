@@ -18,6 +18,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		595AE98E265D7ADD006984E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 59E3633E265D757B00BB1A4B;
+			remoteInfo = Suggestions;
+		};
+		595AE990265D7ADD006984E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 59E36347265D757B00BB1A4B;
+			remoteInfo = SuggestionsTests;
+		};
 		59E36318265D717C00BB1A4B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 59E362F9265D717A00BB1A4B /* Project object */;
@@ -35,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Suggestions.xcodeproj; path = ../Suggestions/Suggestions.xcodeproj; sourceTree = "<group>"; };
 		59E36301265D717A00BB1A4B /* KiwiSuggestions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiwiSuggestions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E36304265D717A00BB1A4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59E36306265D717A00BB1A4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,9 +92,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		595AE98A265D7ADD006984E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				595AE98F265D7ADD006984E9 /* Suggestions.framework */,
+				595AE991265D7ADD006984E9 /* SuggestionsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		59E362F8265D717A00BB1A4B = {
 			isa = PBXGroup;
 			children = (
+				595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */,
 				59E36303265D717A00BB1A4B /* KiwiSuggestions */,
 				59E3631A265D717C00BB1A4B /* KiwiSuggestionsTests */,
 				59E36325265D717C00BB1A4B /* KiwiSuggestionsUITests */,
@@ -219,6 +244,12 @@
 			mainGroup = 59E362F8265D717A00BB1A4B;
 			productRefGroup = 59E36302265D717A00BB1A4B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 595AE98A265D7ADD006984E9 /* Products */;
+					ProjectRef = 595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				59E36300265D717A00BB1A4B /* KiwiSuggestions */,
@@ -227,6 +258,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		595AE98F265D7ADD006984E9 /* Suggestions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Suggestions.framework;
+			remoteRef = 595AE98E265D7ADD006984E9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		595AE991265D7ADD006984E9 /* SuggestionsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SuggestionsTests.xctest;
+			remoteRef = 595AE990265D7ADD006984E9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		59E362FF265D717A00BB1A4B /* Resources */ = {
