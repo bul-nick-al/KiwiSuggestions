@@ -10,4 +10,7 @@
    <FileRef
       location = "group:CommonModels/CommonModels.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Storage/Storage.xcodeproj">
+   </FileRef>
 </Workspace>
