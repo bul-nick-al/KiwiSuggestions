@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		59536D94265EC70800422D19 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59536D8A265EC70800422D19 /* Storage.framework */; };
 		59536D99265EC70800422D19 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536D98265EC70800422D19 /* StorageTests.swift */; };
+		59536DA5265EC7B900422D19 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DA4265EC7B900422D19 /* StorageService.swift */; };
+		59536DA9265EC89400422D19 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DA8265EC89400422D19 /* UserDefaultsStorage.swift */; };
+		59536DAB265EC93700422D19 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DAA265EC93700422D19 /* Create.swift */; };
+		59536DAD265EC95B00422D19 /* StorageServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DAC265EC95B00422D19 /* StorageServiceType.swift */; };
+		59536E022660367F00422D19 /* RuntimeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536E012660367F00422D19 /* RuntimeStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +32,11 @@
 		59536D93265EC70800422D19 /* StorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59536D98265EC70800422D19 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		59536D9A265EC70800422D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59536DA4265EC7B900422D19 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		59536DA8265EC89400422D19 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		59536DAA265EC93700422D19 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
+		59536DAC265EC95B00422D19 /* StorageServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceType.swift; sourceTree = "<group>"; };
+		59536E012660367F00422D19 /* RuntimeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +79,11 @@
 		59536D8C265EC70800422D19 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				59536DAC265EC95B00422D19 /* StorageServiceType.swift */,
+				59536DA4265EC7B900422D19 /* StorageService.swift */,
+				59536DA8265EC89400422D19 /* UserDefaultsStorage.swift */,
+				59536E012660367F00422D19 /* RuntimeStorage.swift */,
+				59536DAA265EC93700422D19 /* Create.swift */,
 				59536D8E265EC70800422D19 /* Info.plist */,
 			);
 			path = Storage;
@@ -143,6 +158,7 @@
 				TargetAttributes = {
 					59536D89265EC70800422D19 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					59536D92265EC70800422D19 = {
 						CreatedOnToolsVersion = 12.5;
@@ -190,6 +206,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59536E022660367F00422D19 /* RuntimeStorage.swift in Sources */,
+				59536DAB265EC93700422D19 /* Create.swift in Sources */,
+				59536DA9265EC89400422D19 /* UserDefaultsStorage.swift in Sources */,
+				59536DA5265EC7B900422D19 /* StorageService.swift in Sources */,
+				59536DAD265EC95B00422D19 /* StorageServiceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +358,7 @@
 		59536D9F265EC70800422D19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NUL4RU9YH8;
@@ -350,9 +372,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = club.innopolis.customer.Storage;
+				PRODUCT_BUNDLE_IDENTIFIER = kiwi.flights.Storage;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -361,6 +384,7 @@
 		59536DA0265EC70800422D19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NUL4RU9YH8;
@@ -374,7 +398,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = club.innopolis.customer.Storage;
+				PRODUCT_BUNDLE_IDENTIFIER = kiwi.flights.Storage;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -385,6 +409,7 @@
 		59536DA2265EC70800422D19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NUL4RU9YH8;
 				INFOPLIST_FILE = StorageTests/Info.plist;
@@ -403,6 +428,7 @@
 		59536DA3265EC70800422D19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NUL4RU9YH8;
 				INFOPLIST_FILE = StorageTests/Info.plist;

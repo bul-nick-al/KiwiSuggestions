@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59536DB5265EDF5300422D19 /* DailyFlightSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DB4265EDF5300422D19 /* DailyFlightSuggestion.swift */; };
+		59536DB7265EE10500422D19 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DB6265EE10500422D19 /* CalendarService.swift */; };
+		59536DF1265FF8A700422D19 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DF0265FF8A600422D19 /* Location.swift */; };
+		595AE993265D7BCD006984E9 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595AE992265D7BCD006984E9 /* Flight.swift */; };
 		59E3636E265D769300BB1A4B /* CommonModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E36364265D769200BB1A4B /* CommonModels.framework */; };
 		59E36373265D769300BB1A4B /* CommonModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E36372265D769300BB1A4B /* CommonModelsTests.swift */; };
 /* End PBXBuildFile section */
@@ -22,6 +26,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		59536DB4265EDF5300422D19 /* DailyFlightSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFlightSuggestion.swift; sourceTree = "<group>"; };
+		59536DB6265EE10500422D19 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		59536DF0265FF8A600422D19 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		595AE992265D7BCD006984E9 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		59E36364265D769200BB1A4B /* CommonModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E36368265D769200BB1A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59E3636D265D769300BB1A4B /* CommonModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +56,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59536DAE265ECA0800422D19 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				595AE992265D7BCD006984E9 /* Flight.swift */,
+				59536DB4265EDF5300422D19 /* DailyFlightSuggestion.swift */,
+				59536DF0265FF8A600422D19 /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		59536DAF265ECA0C00422D19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				59536DB6265EE10500422D19 /* CalendarService.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		59E3635A265D769200BB1A4B = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +95,8 @@
 		59E36366265D769200BB1A4B /* CommonModels */ = {
 			isa = PBXGroup;
 			children = (
+				59536DAF265ECA0C00422D19 /* Protocols */,
+				59536DAE265ECA0800422D19 /* Models */,
 				59E36368265D769200BB1A4B /* Info.plist */,
 			);
 			path = CommonModels;
@@ -143,6 +171,7 @@
 				TargetAttributes = {
 					59E36363265D769200BB1A4B = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					59E3636C265D769300BB1A4B = {
 						CreatedOnToolsVersion = 12.5;
@@ -190,6 +219,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				595AE993265D7BCD006984E9 /* Flight.swift in Sources */,
+				59536DB7265EE10500422D19 /* CalendarService.swift in Sources */,
+				59536DF1265FF8A700422D19 /* Location.swift in Sources */,
+				59536DB5265EDF5300422D19 /* DailyFlightSuggestion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +370,7 @@
 		59E36379265D769300BB1A4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZCLG4KKN6;
@@ -353,6 +387,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kiwi.flights.CommonModels;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -361,6 +396,7 @@
 		59E3637A265D769300BB1A4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2ZCLG4KKN6;
@@ -385,6 +421,7 @@
 		59E3637C265D769300BB1A4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ZCLG4KKN6;
 				INFOPLIST_FILE = CommonModelsTests/Info.plist;
@@ -403,6 +440,7 @@
 		59E3637D265D769300BB1A4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ZCLG4KKN6;
 				INFOPLIST_FILE = CommonModelsTests/Info.plist;
