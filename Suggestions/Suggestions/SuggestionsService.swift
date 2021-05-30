@@ -8,5 +8,5 @@
 import CommonModels
 
 public protocol SuggestionsService {
-    func getFlightSuggestions(_: @escaping (Result<[Flight], Error>) -> Void)
+    func getFlightSuggestions(_: @escaping (Result<DailyFlightSuggestion, Error>) -> Void)
 }

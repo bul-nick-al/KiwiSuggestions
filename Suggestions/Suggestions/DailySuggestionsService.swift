@@ -27,7 +27,7 @@ class DailySuggestionsService {
         self.maxNumberOfSuggestions = maxNumberOfSuggestions
     }
 
-    fileprivate func loadFlights(callback: @escaping (Result<[Flight], Error>) -> Void) {
+    fileprivate func loadFlightSuggestions(callback: @escaping (Result<DailyFlightSuggestion, Error>) -> Void) {
         api.findFlights(for: .init(latitude: 55.8, longitude: 49)) { [weak self] in
             guard let self = self else {
                 callback(.failure(DailySuggestionsServiceError.serviceDeinitialised))
@@ -35,15 +35,13 @@ class DailySuggestionsService {
                 return
             }
 
-            callback($0.flatMap(self.getSuitableSuggestions(from:)).map(self.storeUsedFlights(_:)))
+            switch $0.flatMap(self.getSuitableSuggestions) {
+            case .success(let flights):
+                self.fligtsToDailyFlightSuggestion(flights, callback: callback)
+            case .failure(let error):
+                callback(.failure(error))
+            }
         }
-    }
-
-    fileprivate func store(flights: [Flight]) {
-        storage.save(
-            value: DailyFlightSuggestion(date: dateProvider.date, suggestedFlights: flights),
-            forKey: Self.flightSuggestionStorageKey
-        )
     }
 
     fileprivate func getSuitableSuggestions(from flights: [Flight]) -> Result<[Flight], Error> {
@@ -58,41 +56,72 @@ class DailySuggestionsService {
         return .success(Array(suitableFlights))
     }
 
-    fileprivate func storeUsedFlights(_ flights: [Flight]) -> [Flight] {
-        storage.save(
-            value: DailyFlightSuggestion(date: dateProvider.date, suggestedFlights: flights),
-            forKey: Self.flightSuggestionStorageKey
+    fileprivate func fligtsToDailyFlightSuggestion(_ flights: [Flight], callback: @escaping (Result<DailyFlightSuggestion, Error>) -> Void) {
+        let fallbackSuggestion = DailyFlightSuggestion(
+            date: dateProvider.date, suggestedFlights: flights, destinationImages: [:]
         )
 
-        storage.append(values: flights.map { $0.id }, forKey: Self.expiredSuggestionsIdsKey)
+        loadDestinationImages(for: flights) { callback($0.map { [weak self] in
+            guard let self = self else {
+                callback(.failure(DailySuggestionsServiceError.serviceDeinitialised))
 
-        return flights
+                return fallbackSuggestion
+            }
+
+            let dailySuggestion = DailyFlightSuggestion(
+                date: self.dateProvider.date, suggestedFlights: flights, destinationImages: $0
+            )
+            self.storage.save(value: dailySuggestion, forKey: Self.flightSuggestionStorageKey)
+
+            self.storage.append(values: flights.map { $0.id }, forKey: Self.expiredSuggestionsIdsKey)
+
+            return dailySuggestion
+        })}
+    }
+
+    func loadDestinationImages(for flights: [Flight], completionHandler: @escaping (Result<[String: Data], Error>) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else {
+                completionHandler(.failure(DailySuggestionsServiceError.serviceDeinitialised))
+
+                return
+            }
+
+            var result: [String: Data] = [:]
+            let dispatchGroup = DispatchGroup()
+
+            for destination in flights.compactMap({ $0.mapIdto }) {
+                dispatchGroup.enter()
+
+                self.api.getImage(for: destination) {
+                    if case .success(let data) = $0 { result[destination] = data }
+
+                    dispatchGroup.leave()
+                }
+            }
+
+            dispatchGroup.wait()
+
+            DispatchQueue.main.async {
+                completionHandler(.success(result))
+            }
+        }
     }
 }
 
 extension DailySuggestionsService: SuggestionsService {
 
-    func getFlightSuggestions(_ callback: @escaping (Result<[Flight], Error>) -> Void) {
+    func getFlightSuggestions(_ callback: @escaping (Result<DailyFlightSuggestion, Error>) -> Void) {
         guard
             let storedFlightSuggestion: DailyFlightSuggestion = storage.getValue(for: Self.flightSuggestionStorageKey),
             Calendar.current.isDate(storedFlightSuggestion.date, inSameDayAs: dateProvider.date)
         else {
-            loadFlights { [weak self] result in
-                guard let self = self else { return }
-
-                switch result {
-                case .success(let flights):
-                    self.store(flights: flights)
-                    callback(.success(flights))
-                case .failure(let error):
-                    callback(.failure(error))
-                }
-            }
+            loadFlightSuggestions(callback: callback)
 
             return
         }
 
-        callback(.success(storedFlightSuggestion.suggestedFlights))
+        callback(.success(storedFlightSuggestion))
     }
 
 }
