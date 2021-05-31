@@ -19,9 +19,10 @@ public struct Flight: Codable {
     public let duration: Duration?
     public let flyDuration: String?
     public let price: Int?
-    public let conversion: Conversion?
+    public let conversion: [String: Double]?
     public let availability: Availability?
     public let routes: [[String]]?
+    public let route: [Route]?
     public let airlines: [String]?
     public let bookingToken: String?
     public let deepLink: String?
@@ -34,6 +35,7 @@ public struct Flight: Codable {
         case distance, duration
         case flyDuration = "fly_duration"
         case price, conversion
+        case route
         case availability, routes, airlines
         case bookingToken = "booking_token"
         case deepLink = "deep_link"
@@ -43,7 +45,7 @@ public struct Flight: Codable {
     public init(
         id: String, flyFrom: String, flyTo: String, cityFrom: String, cityCodeFrom: String, cityTo: String,
         cityCodeTo: String, countryFrom: Country, countryTo: Country, dTime: Int, dTimeUTC: Int, aTime: Int,
-        aTimeUTC: Int, distance: Double, duration: Duration, flyDuration: String, price: Int, conversion: Conversion,
+        aTimeUTC: Int, distance: Double, duration: Duration, flyDuration: String, price: Int, conversion: [String: Double],
         availability: Availability, routes: [[String]], airlines: [String], bookingToken: String, deepLink: String,
         mapIdfrom: String, mapIdto: String, hashtags: [String]
     ) {
@@ -73,6 +75,7 @@ public struct Flight: Codable {
         self.mapIdfrom = mapIdfrom
         self.mapIdto = mapIdto
         self.hashtags = hashtags
+        self.route = []
     }
 
     public init(
@@ -95,7 +98,7 @@ public struct Flight: Codable {
         self.duration = .init(departure: 0, return: 0, total: 0)
         self.flyDuration = ""
         self.price = 0
-        self.conversion = .init(eur: 00)
+        self.conversion = ["eur": 20]
         self.availability = .init(seats: 0)
         self.routes = .init()
         self.airlines = .init()
@@ -104,6 +107,7 @@ public struct Flight: Codable {
         self.mapIdfrom = "mapIdfrom"
         self.mapIdto = "mapIdto"
         self.hashtags = .init()
+        self.route = []
     }
 }
 
@@ -113,19 +117,6 @@ public struct Availability: Codable {
 
     public init(seats: Int?) {
         self.seats = seats
-    }
-}
-
-// MARK: - Conversion
-public struct Conversion: Codable {
-    public let eur: Int?
-
-    public enum CodingKeys: String, CodingKey {
-        case eur = "EUR"
-    }
-
-    public init(eur: Int?) {
-        self.eur = eur
     }
 }
 
@@ -147,5 +138,21 @@ public struct Duration: Codable {
         self.departure = departure
         self.`return` = `return`
         self.total = total
+    }
+}
+
+// MARK: - Route
+public struct Route: Codable {
+    let id, combinationID: String
+    let flyFrom: String?
+    let flyTo: String
+    let cityFrom: String?
+    let cityCodeFrom: String?
+    let cityTo, cityCodeTo: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case combinationID = "combination_id"
+        case flyFrom, flyTo, cityFrom, cityCodeFrom, cityTo, cityCodeTo
     }
 }

@@ -11,7 +11,7 @@
 		59536DD1265EE80800422D19 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DD0265EE80800422D19 /* APITests.swift */; };
 		59536DDE265EE84500422D19 /* CommonModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59536DDD265EE84500422D19 /* CommonModels.framework */; };
 		59536DE2265EE88200422D19 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DE1265EE88200422D19 /* ApiService.swift */; };
-		59536DF3265FF9DF00422D19 /* KiwiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DF2265FF9DF00422D19 /* KiwiService.swift */; };
+		59536DF3265FF9DF00422D19 /* KiwiApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DF2265FF9DF00422D19 /* KiwiApiService.swift */; };
 		59536DF6265FFCF800422D19 /* FlightsSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DF5265FFCF800422D19 /* FlightsSearchResult.swift */; };
 		59536DFC2660348000422D19 /* ApiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DFB2660348000422D19 /* ApiMock.swift */; };
 		59536DFE2660351300422D19 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DFD2660351300422D19 /* Create.swift */; };
@@ -36,7 +36,7 @@
 		59536DD2265EE80800422D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59536DDD265EE84500422D19 /* CommonModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59536DE1265EE88200422D19 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		59536DF2265FF9DF00422D19 /* KiwiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiwiService.swift; sourceTree = "<group>"; };
+		59536DF2265FF9DF00422D19 /* KiwiApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiwiApiService.swift; sourceTree = "<group>"; };
 		59536DF5265FFCF800422D19 /* FlightsSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsSearchResult.swift; sourceTree = "<group>"; };
 		59536DFB2660348000422D19 /* ApiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMock.swift; sourceTree = "<group>"; };
 		59536DFD2660351300422D19 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 			children = (
 				59536DF4265FFCDB00422D19 /* Models */,
 				59536DE1265EE88200422D19 /* ApiService.swift */,
-				59536DF2265FF9DF00422D19 /* KiwiService.swift */,
+				59536DF2265FF9DF00422D19 /* KiwiApiService.swift */,
 				59536DFB2660348000422D19 /* ApiMock.swift */,
 				59536DFD2660351300422D19 /* Create.swift */,
 				59536DFF2660352400422D19 /* ApiServiceType.swift */,
@@ -233,7 +233,7 @@
 				59536DFC2660348000422D19 /* ApiMock.swift in Sources */,
 				59536DF6265FFCF800422D19 /* FlightsSearchResult.swift in Sources */,
 				59536DE2265EE88200422D19 /* ApiService.swift in Sources */,
-				59536DF3265FF9DF00422D19 /* KiwiService.swift in Sources */,
+				59536DF3265FF9DF00422D19 /* KiwiApiService.swift in Sources */,
 				59536DFE2660351300422D19 /* Create.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +391,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = API/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -417,6 +418,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = API/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

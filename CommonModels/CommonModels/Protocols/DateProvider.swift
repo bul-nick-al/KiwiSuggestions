@@ -1,5 +1,5 @@
 //
-//  CalendarService.swift
+//  DateProvider.swift
 //  CommonModels
 //
 //  Created by Николай Булдаков on 26.05.2021.

@@ -1,5 +1,5 @@
 //
-//  KiwiService.swift
+//  KiwiApiService.swift
 //  API
 //
 //  Created by Николай Булдаков on 27.05.2021.
@@ -11,7 +11,7 @@ import UIKit
 
 class KiwiApiService {
     func getURL(for location: Location) -> URL? {
-        URL(string: "https://api.skypicker.com/flights?v=3&sort=popularity&asc=0&locale=en&children=0&infants=0&fly_from=\(location.latitude)-\(location.longitude)-250km&to=anywhere&featureName=aggregateResults&dateFrom=25/05/2021&dateTo=25/06/2021&typeFlight=oneway&one_per_date=0&oneforcity=1&wait_for_refresh=0&adults=1&limit=45&partner=skypicker")
+        URL(string: "https://api.skypicker.com/flights?v=3&sort=popularity&asc=0&locale=en&children=0&infants=0&fly_from=\(location.latitude.rounded(toPlaces: 3))-\(location.longitude.rounded(toPlaces: 3))-250km&to=anywhere&featureName=aggregateResults&dateFrom=25/05/2021&dateTo=25/06/2021&typeFlight=oneway&one_per_date=0&oneforcity=1&wait_for_refresh=0&adults=1&limit=45&partner=skypicker")
     }
 
     func getPhotoURL(for destination: String) -> URL? {
@@ -98,4 +98,12 @@ public enum ApiError: Error {
     case invalidUrl
     case couldNotPaceData
     case serverError
+}
+
+extension Double {
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
 }

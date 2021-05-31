@@ -3,10 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59267D882663BB6B00B8812B /* FlightFullDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59267D872663BB6B00B8812B /* FlightFullDetailsViewController.swift */; };
+		59267D8A2663C54100B8812B /* TransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59267D892663C54100B8812B /* TransitionDelegate.swift */; };
+		59267D8C2663C63400B8812B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59267D8B2663C63400B8812B /* BaseViewController.swift */; };
+		59267D912664010D00B8812B /* CommonModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59267D902664010D00B8812B /* CommonModels.framework */; };
+		59267D922664010D00B8812B /* CommonModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59267D902664010D00B8812B /* CommonModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59267D95266409CB00B8812B /* Suggestions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59267D94266409CB00B8812B /* Suggestions.framework */; };
+		59267D96266409CB00B8812B /* Suggestions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59267D94266409CB00B8812B /* Suggestions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59267D98266409CF00B8812B /* API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59267D97266409CF00B8812B /* API.framework */; };
+		59267D99266409CF00B8812B /* API.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59267D97266409CF00B8812B /* API.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59267D9B266409D500B8812B /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59267D9A266409D500B8812B /* Storage.framework */; };
+		59267D9C266409D500B8812B /* Storage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59267D9A266409D500B8812B /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5984C1F726619A87005945EB /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 5984C1F626619A87005945EB /* TinyConstraints */; };
 		59E36305265D717A00BB1A4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E36304265D717A00BB1A4B /* AppDelegate.swift */; };
 		59E36307265D717A00BB1A4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E36306265D717A00BB1A4B /* SceneDelegate.swift */; };
 		59E36309265D717A00BB1A4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E36308265D717A00BB1A4B /* ViewController.swift */; };
@@ -18,20 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		595AE98E265D7ADD006984E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 59E3633E265D757B00BB1A4B;
-			remoteInfo = Suggestions;
-		};
-		595AE990265D7ADD006984E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 59E36347265D757B00BB1A4B;
-			remoteInfo = SuggestionsTests;
-		};
 		59E36318265D717C00BB1A4B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 59E362F9265D717A00BB1A4B /* Project object */;
@@ -48,8 +46,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		59267D932664010D00B8812B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				59267D96266409CB00B8812B /* Suggestions.framework in Embed Frameworks */,
+				59267D99266409CF00B8812B /* API.framework in Embed Frameworks */,
+				59267D9C266409D500B8812B /* Storage.framework in Embed Frameworks */,
+				59267D922664010D00B8812B /* CommonModels.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Suggestions.xcodeproj; path = ../Suggestions/Suggestions.xcodeproj; sourceTree = "<group>"; };
+		59267D872663BB6B00B8812B /* FlightFullDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightFullDetailsViewController.swift; sourceTree = "<group>"; };
+		59267D892663C54100B8812B /* TransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDelegate.swift; sourceTree = "<group>"; };
+		59267D8B2663C63400B8812B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		59267D902664010D00B8812B /* CommonModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59267D94266409CB00B8812B /* Suggestions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Suggestions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59267D97266409CF00B8812B /* API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59267D9A266409D500B8812B /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E36301265D717A00BB1A4B /* KiwiSuggestions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiwiSuggestions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E36304265D717A00BB1A4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59E36306265D717A00BB1A4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +93,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59267D95266409CB00B8812B /* Suggestions.framework in Frameworks */,
+				5984C1F726619A87005945EB /* TinyConstraints in Frameworks */,
+				59267D9B266409D500B8812B /* Storage.framework in Frameworks */,
+				59267D912664010D00B8812B /* CommonModels.framework in Frameworks */,
+				59267D98266409CF00B8812B /* API.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,23 +118,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		595AE98A265D7ADD006984E9 /* Products */ = {
+		59267D8F2664010D00B8812B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				595AE98F265D7ADD006984E9 /* Suggestions.framework */,
-				595AE991265D7ADD006984E9 /* SuggestionsTests.xctest */,
+				59267D9A266409D500B8812B /* Storage.framework */,
+				59267D97266409CF00B8812B /* API.framework */,
+				59267D94266409CB00B8812B /* Suggestions.framework */,
+				59267D902664010D00B8812B /* CommonModels.framework */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		59E362F8265D717A00BB1A4B = {
 			isa = PBXGroup;
 			children = (
-				595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */,
 				59E36303265D717A00BB1A4B /* KiwiSuggestions */,
 				59E3631A265D717C00BB1A4B /* KiwiSuggestionsTests */,
 				59E36325265D717C00BB1A4B /* KiwiSuggestionsUITests */,
 				59E36302265D717A00BB1A4B /* Products */,
+				59267D8F2664010D00B8812B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +161,9 @@
 				59E3630D265D717C00BB1A4B /* Assets.xcassets */,
 				59E3630F265D717C00BB1A4B /* LaunchScreen.storyboard */,
 				59E36312265D717C00BB1A4B /* Info.plist */,
+				59267D872663BB6B00B8812B /* FlightFullDetailsViewController.swift */,
+				59267D892663C54100B8812B /* TransitionDelegate.swift */,
+				59267D8B2663C63400B8812B /* BaseViewController.swift */,
 			);
 			path = KiwiSuggestions;
 			sourceTree = "<group>";
@@ -165,12 +196,16 @@
 				59E362FD265D717A00BB1A4B /* Sources */,
 				59E362FE265D717A00BB1A4B /* Frameworks */,
 				59E362FF265D717A00BB1A4B /* Resources */,
+				59267D932664010D00B8812B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = KiwiSuggestions;
+			packageProductDependencies = (
+				5984C1F626619A87005945EB /* TinyConstraints */,
+			);
 			productName = KiwiSuggestions;
 			productReference = 59E36301265D717A00BB1A4B /* KiwiSuggestions.app */;
 			productType = "com.apple.product-type.application";
@@ -242,14 +277,11 @@
 				Base,
 			);
 			mainGroup = 59E362F8265D717A00BB1A4B;
+			packageReferences = (
+				5984C1F526619A87005945EB /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+			);
 			productRefGroup = 59E36302265D717A00BB1A4B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 595AE98A265D7ADD006984E9 /* Products */;
-					ProjectRef = 595AE989265D7ADD006984E9 /* Suggestions.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				59E36300265D717A00BB1A4B /* KiwiSuggestions */,
@@ -258,23 +290,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		595AE98F265D7ADD006984E9 /* Suggestions.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Suggestions.framework;
-			remoteRef = 595AE98E265D7ADD006984E9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		595AE991265D7ADD006984E9 /* SuggestionsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SuggestionsTests.xctest;
-			remoteRef = 595AE990265D7ADD006984E9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		59E362FF265D717A00BB1A4B /* Resources */ = {
@@ -309,8 +324,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E36309265D717A00BB1A4B /* ViewController.swift in Sources */,
+				59267D8A2663C54100B8812B /* TransitionDelegate.swift in Sources */,
 				59E36305265D717A00BB1A4B /* AppDelegate.swift in Sources */,
+				59267D882663BB6B00B8812B /* FlightFullDetailsViewController.swift in Sources */,
 				59E36307265D717A00BB1A4B /* SceneDelegate.swift in Sources */,
+				59267D8C2663C63400B8812B /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +667,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5984C1F526619A87005945EB /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5984C1F626619A87005945EB /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5984C1F526619A87005945EB /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 59E362F9265D717A00BB1A4B /* Project object */;
 }

@@ -1,5 +1,5 @@
 //
-//  DailyFlightSuggestion.swift
+//  DatedFlightSuggestion.swift
 //  CommonModels
 //
 //  Created by Николай Булдаков on 26.05.2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct DailyFlightSuggestion {
+public struct DatedFlightSuggestion {
     public var date: Date
     public var suggestedFlights: [Flight]
     public var destinationImages: [String: Data]
@@ -19,4 +19,4 @@ public struct DailyFlightSuggestion {
     }
 }
 
-extension DailyFlightSuggestion: Codable {}
+extension DatedFlightSuggestion: Codable {}

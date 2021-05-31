@@ -38,7 +38,7 @@ class SuggestionsTests: XCTestCase {
     func testExample() throws {
         let expectation = XCTestExpectation(description: "get flight suggestions")
         suggestionService.getFlightSuggestions { flights in
-            let storedSuggestion: DailyFlightSuggestion? = self.storage.getValue(
+            let storedSuggestion: DatedFlightSuggestion? = self.storage.getValue(
                 for: DailySuggestionsService.flightSuggestionStorageKey
             )
 
@@ -46,7 +46,7 @@ class SuggestionsTests: XCTestCase {
         }
 
         suggestionService.getFlightSuggestions { flights in
-            let storedSuggestion: DailyFlightSuggestion? = self.storage.getValue(
+            let storedSuggestion: DatedFlightSuggestion? = self.storage.getValue(
                 for: DailySuggestionsService.flightSuggestionStorageKey
             )
 
@@ -56,7 +56,7 @@ class SuggestionsTests: XCTestCase {
         dateProvider.date = Calendar.current.date(byAdding: DateComponents(day: 1), to: dateProvider.date)!
 
         suggestionService.getFlightSuggestions { flights in
-            let storedSuggestion: DailyFlightSuggestion? = self.storage.getValue(
+            let storedSuggestion: DatedFlightSuggestion? = self.storage.getValue(
                 for: DailySuggestionsService.flightSuggestionStorageKey
             )
 
