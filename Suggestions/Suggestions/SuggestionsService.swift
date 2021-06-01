@@ -8,5 +8,6 @@
 import CommonModels
 
 public protocol SuggestionsService {
+    var hasCachedSuggestions: Bool { get }
     func getFlightSuggestions(_: @escaping (Result<DatedFlightSuggestion, Error>) -> Void)
 }

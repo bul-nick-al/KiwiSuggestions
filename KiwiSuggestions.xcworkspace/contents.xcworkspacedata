@@ -14,6 +14,9 @@
       location = "group:Storage/Storage.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Location/Location.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:API/API.xcodeproj">
    </FileRef>
 </Workspace>

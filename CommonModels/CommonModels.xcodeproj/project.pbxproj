@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,14 @@
 		59536DB7265EE10500422D19 /* DateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DB6265EE10500422D19 /* DateProvider.swift */; };
 		59536DF1265FF8A700422D19 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DF0265FF8A600422D19 /* Location.swift */; };
 		595AE993265D7BCD006984E9 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595AE992265D7BCD006984E9 /* Flight.swift */; };
+		596A76732665002C006C36EE /* UIImage+blurImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A76722665002C006C36EE /* UIImage+blurImage.swift */; };
+		596A7675266503FA006C36EE /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A7674266503FA006C36EE /* NiblessView.swift */; };
+		596A767F2665060D006C36EE /* ContainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A767E2665060D006C36EE /* ContainerCollectionCell.swift */; };
+		596A76822665079B006C36EE /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 596A76812665079B006C36EE /* TinyConstraints */; };
+		596A768626650BE8006C36EE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A768526650BE8006C36EE /* Date.swift */; };
+		596A768C26660AC5006C36EE /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A768B26660AC5006C36EE /* UIView.swift */; };
+		596A768F266614B5006C36EE /* BaseBoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A768E266614B5006C36EE /* BaseBoundViewController.swift */; };
+		596A7691266614F1006C36EE /* WithBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A7690266614F1006C36EE /* WithBoundView.swift */; };
 		59E3636E265D769300BB1A4B /* CommonModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E36364265D769200BB1A4B /* CommonModels.framework */; };
 		59E36373265D769300BB1A4B /* CommonModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E36372265D769300BB1A4B /* CommonModelsTests.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +42,13 @@
 		59536DB6265EE10500422D19 /* DateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProvider.swift; sourceTree = "<group>"; };
 		59536DF0265FF8A600422D19 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		595AE992265D7BCD006984E9 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		596A76722665002C006C36EE /* UIImage+blurImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+blurImage.swift"; sourceTree = "<group>"; };
+		596A7674266503FA006C36EE /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
+		596A767E2665060D006C36EE /* ContainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerCollectionCell.swift; sourceTree = "<group>"; };
+		596A768526650BE8006C36EE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		596A768B26660AC5006C36EE /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		596A768E266614B5006C36EE /* BaseBoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBoundViewController.swift; sourceTree = "<group>"; };
+		596A7690266614F1006C36EE /* WithBoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithBoundView.swift; sourceTree = "<group>"; };
 		59E36364265D769200BB1A4B /* CommonModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E36368265D769200BB1A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59E3636D265D769300BB1A4B /* CommonModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596A76822665079B006C36EE /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,8 +92,29 @@
 				59536DB6265EE10500422D19 /* DateProvider.swift */,
 				59267D8D266400DA00B8812B /* Configurable.swift */,
 				59267D9F2664204B00B8812B /* LocationProvider.swift */,
+				596A7690266614F1006C36EE /* WithBoundView.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		596A76712664FFEA006C36EE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				596A76722665002C006C36EE /* UIImage+blurImage.swift */,
+				596A768526650BE8006C36EE /* Date.swift */,
+				596A768B26660AC5006C36EE /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		596A767D26650604006C36EE /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				596A7674266503FA006C36EE /* NiblessView.swift */,
+				596A767E2665060D006C36EE /* ContainerCollectionCell.swift */,
+				596A768E266614B5006C36EE /* BaseBoundViewController.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		59E3635A265D769200BB1A4B = {
@@ -101,6 +138,8 @@
 		59E36366265D769200BB1A4B /* CommonModels */ = {
 			isa = PBXGroup;
 			children = (
+				596A767D26650604006C36EE /* UIKit */,
+				596A76712664FFEA006C36EE /* Extensions */,
 				59536DAF265ECA0C00422D19 /* Protocols */,
 				59536DAE265ECA0800422D19 /* Models */,
 				59E36368265D769200BB1A4B /* Info.plist */,
@@ -144,6 +183,9 @@
 			dependencies = (
 			);
 			name = CommonModels;
+			packageProductDependencies = (
+				596A76812665079B006C36EE /* TinyConstraints */,
+			);
 			productName = CommonModels;
 			productReference = 59E36364265D769200BB1A4B /* CommonModels.framework */;
 			productType = "com.apple.product-type.framework";
@@ -193,6 +235,9 @@
 				Base,
 			);
 			mainGroup = 59E3635A265D769200BB1A4B;
+			packageReferences = (
+				596A76802665079B006C36EE /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+			);
 			productRefGroup = 59E36365265D769200BB1A4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -225,12 +270,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596A7691266614F1006C36EE /* WithBoundView.swift in Sources */,
 				59267D8E266400DA00B8812B /* Configurable.swift in Sources */,
+				596A768626650BE8006C36EE /* Date.swift in Sources */,
+				596A768C26660AC5006C36EE /* UIView.swift in Sources */,
+				596A767F2665060D006C36EE /* ContainerCollectionCell.swift in Sources */,
 				595AE993265D7BCD006984E9 /* Flight.swift in Sources */,
 				59536DB7265EE10500422D19 /* DateProvider.swift in Sources */,
+				596A768F266614B5006C36EE /* BaseBoundViewController.swift in Sources */,
+				596A76732665002C006C36EE /* UIImage+blurImage.swift in Sources */,
 				59267DA02664204B00B8812B /* LocationProvider.swift in Sources */,
 				59536DF1265FF8A700422D19 /* Location.swift in Sources */,
 				59536DB5265EDF5300422D19 /* DailyFlightSuggestion.swift in Sources */,
+				596A7675266503FA006C36EE /* NiblessView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +549,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		596A76802665079B006C36EE /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		596A76812665079B006C36EE /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 596A76802665079B006C36EE /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 59E3635B265D769200BB1A4B /* Project object */;
 }

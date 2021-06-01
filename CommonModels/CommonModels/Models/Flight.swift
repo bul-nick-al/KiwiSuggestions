@@ -28,6 +28,7 @@ public struct Flight: Codable {
     public let deepLink: String?
     public let mapIdfrom, mapIdto: String?
     public let hashtags: [String]?
+    public let hasAirportChange: Bool?
 
     public enum CodingKeys: String, CodingKey {
         case id, flyFrom, flyTo, cityFrom, cityCodeFrom, cityTo
@@ -40,6 +41,7 @@ public struct Flight: Codable {
         case bookingToken = "booking_token"
         case deepLink = "deep_link"
         case mapIdfrom, mapIdto, hashtags
+        case hasAirportChange = "has_airport_change"
     }
 
     public init(
@@ -76,6 +78,7 @@ public struct Flight: Codable {
         self.mapIdto = mapIdto
         self.hashtags = hashtags
         self.route = []
+        self.hasAirportChange = true
     }
 
     public init(
@@ -108,6 +111,7 @@ public struct Flight: Codable {
         self.mapIdto = "mapIdto"
         self.hashtags = .init()
         self.route = []
+        self.hasAirportChange = true
     }
 }
 
@@ -143,16 +147,20 @@ public struct Duration: Codable {
 
 // MARK: - Route
 public struct Route: Codable {
-    let id, combinationID: String
-    let flyFrom: String?
-    let flyTo: String
-    let cityFrom: String?
-    let cityCodeFrom: String?
-    let cityTo, cityCodeTo: String?
+    public let id, combinationID: String
+    public let flyFrom: String?
+    public let flyTo: String
+    public let cityFrom: String?
+    public let cityCodeFrom: String?
+    public let cityTo, cityCodeTo: String?
+    public let airline: String?
+    public let flightNo: Int?
 
     enum CodingKeys: String, CodingKey {
         case id
         case combinationID = "combination_id"
         case flyFrom, flyTo, cityFrom, cityCodeFrom, cityTo, cityCodeTo
+        case airline
+        case flightNo = "flight_no"
     }
 }

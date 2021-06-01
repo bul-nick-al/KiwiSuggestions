@@ -16,13 +16,15 @@ class CardTransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
         presenting: UIViewController,
         source: UIViewController
     ) -> UIViewControllerAnimatedTransitioning? {
-        FlipPresentAnimator { [weak self] in
-            self?.interactionController = .init(viewController: $0.viewController(forKey: .to)!, view: $0.view(forKey: .to)!)
+        ExpandPresentAnimator { [weak self] in
+            self?.interactionController = .init(
+                viewController: $0.viewController(forKey: .to)!, view: $0.view(forKey: .to)!
+            )
         }
     }
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return FlipDismissAnimator()
+        return CollapseDismissAnimator()
     }
 
     func interactionControllerForDismissal(
@@ -35,7 +37,7 @@ class CardTransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
     }
 }
 
-class FlipPresentAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class ExpandPresentAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     // MARK: - Properties
     var transitionDriver: FlipTransitionDriver?
@@ -49,7 +51,7 @@ class FlipPresentAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     // MARK: - Methods
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.25
+        return 0.1
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -86,56 +88,49 @@ class FlipTransitionDriver {
 
     // MARK: - Methods
 
-    func frameOfViewInWindowsCoordinateSystem(_ view: UIView) -> CGRect {
-        if let superview = view.superview {
-            return superview.convert(view.frame, to: nil)
-        }
-        print("[ANIMATION WARNING] Seems like this view is not in views hierarchy\n\(view)\nOriginal frame returned")
-        return view.frame
-    }
-
     private func createAnimator() {
         container.addSubview(toView)
+        toView.frame = self.container.frame
 
-//        toView.horizontalToSuperview()
-//        container.layoutIfNeeded()
-//
         guard
-            let fromViewController = fromViewController as? ViewController,
-            let cardView = (fromViewController.collectionView.cellForItem(at: fromViewController.selectedIndexPath!)
-                                as? ViewController.FlightCardCollectionView),
-            let toViewController = toViewController as? FlightFullDetailsViewController,
-            let snapshot = cardView.snapshotView(afterScreenUpdates: false)
-        else { return }
-//
-//        let toView = self.toView as? FlightCardView
+            let fromViewController = fromViewController as? FlightSuggestionsViewController,
+            let selectedIndexPath = fromViewController.selectedIndexPath,
+            let cardView = fromViewController.collectionView.cellForItem(at: selectedIndexPath)
+                                as? FlightSuggestionsViewController.FlightCardCollectionView,
+            let fromSnapshot = cardView.snapshotView(afterScreenUpdates: false),
+            let toSnapshot = toView.snapshotView(afterScreenUpdates: true)
+        else {
+            completeAnimation()
+            return
+        }
 
+        container.addSubview(fromSnapshot)
+        container.addSubview(toSnapshot)
 
-        container.addSubview(snapshot)
-
-        snapshot.frame = frameOfViewInWindowsCoordinateSystem(cardView)
+        fromSnapshot.frame = cardView.frameInParentCoordinates
         let ratio = cardView.bounds.height / cardView.bounds.width
 
-        toView.frame = self.container.frame
+
         container.layoutIfNeeded()
 
-        let snapshot2 = toView.snapshotView(afterScreenUpdates: true)!
-        container.addSubview(snapshot2)
-        snapshot2.frame = frameOfViewInWindowsCoordinateSystem(cardView)
-        snapshot2.alpha = 0
+        toSnapshot.frame = cardView.frameInParentCoordinates
+        toSnapshot.alpha = 0
 
         toView.alpha = 0
         cardView.alpha = 0
 
-        UIView.animate(withDuration: 0.5, animations: {
-            snapshot.frame = .init(origin: self.container.frame.origin, size: .init(width: self.container.frame.width, height: self.container.frame.width * ratio))
-            snapshot2.frame = self.container.frame
+        UIView.animate(withDuration: 0.1, animations: {
+            fromSnapshot.frame = .init(
+                origin: self.container.frame.origin,
+                size: .init(width: self.container.frame.width, height: self.container.frame.width * ratio)
+            )
+            toSnapshot.frame = self.container.frame
 
-            snapshot.alpha = 0.0
-            snapshot2.alpha = 1.0
+            fromSnapshot.alpha = 0.0
+            toSnapshot.alpha = 1.0
         }, completion: { _ in
-            snapshot2.removeFromSuperview()
-            snapshot.removeFromSuperview()
+            toSnapshot.removeFromSuperview()
+            fromSnapshot.removeFromSuperview()
             self.toView.alpha = 1.0
             self.completeAnimation()
         })
@@ -202,7 +197,7 @@ class VerticalSwipeInteractionController: UIPercentDrivenInteractiveTransition {
     }
 }
 
-class FlipDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class CollapseDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     // MARK: - Properties
     var transitionDriver: FlipBackTransitionDriver?
@@ -247,39 +242,41 @@ class FlipBackTransitionDriver {
 
     // MARK: - Methods
 
-    func frameOfViewInWindowsCoordinateSystem(_ view: UIView) -> CGRect {
-        if let superview = view.superview {
-            return superview.convert(view.frame, to: nil)
-        }
-        print("[ANIMATION WARNING] Seems like this view is not in views hierarchy\n\(view)\nOriginal frame returned")
-        return view.frame
-    }
-
     private func createAnimator() {
-//        toView.horizontalToSuperview()
-//        container.layoutIfNeeded()
-//
         guard
-            let fromViewController = fromViewController as? FlightFullDetailsViewController,
-            let toViewController = toViewController as? ViewController,
+            let toViewController = toViewController as? FlightSuggestionsViewController,
             let cardView = (toViewController.collectionView.cellForItem(at: toViewController.selectedIndexPath!)
-                                as? ViewController.FlightCardCollectionView)
-        else { return }
+                                as? FlightSuggestionsViewController.FlightCardCollectionView)
+        else {
+            completeAnimation()
+
+            return
+        }
 
         cardView.alpha = 1
-        let snapshot = cardView.snapshotView(afterScreenUpdates: true)!
+
+        guard
+            let snapshot = cardView.snapshotView(afterScreenUpdates: true),
+            let snapshot2 = fromView.snapshotView(afterScreenUpdates: false)
+        else {
+            completeAnimation()
+
+            return
+        }
+
         cardView.alpha = 0
 
         container.addSubview(snapshot)
+        container.addSubview(snapshot2)
 
         let ratio = cardView.bounds.height / cardView.bounds.width
-        snapshot.frame = .init(origin: self.container.frame.origin, size: .init(width: self.container.frame.width, height: self.container.frame.width * ratio))
+        snapshot.frame = .init(
+            origin: self.container.frame.origin,
+            size: .init(width: self.container.frame.width, height: self.container.frame.width * ratio)
+        )
 
         container.layoutIfNeeded()
         snapshot.alpha = 0
-
-        let snapshot2 = fromView.snapshotView(afterScreenUpdates: false)!
-        container.addSubview(snapshot2)
         snapshot2.frame = container.frame
         snapshot2.alpha = 1
 
@@ -287,8 +284,8 @@ class FlipBackTransitionDriver {
         fromView.alpha = 0
 
         UIView.animate(withDuration: 0.5, animations: {
-            snapshot.frame = self.frameOfViewInWindowsCoordinateSystem(cardView)
-            snapshot2.frame = self.frameOfViewInWindowsCoordinateSystem(cardView)
+            snapshot.frame = cardView.frameInParentCoordinates
+            snapshot2.frame = cardView.frameInParentCoordinates
 
             snapshot.alpha = 1
             snapshot2.alpha = 0

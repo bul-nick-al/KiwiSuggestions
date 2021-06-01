@@ -118,6 +118,15 @@ class DailySuggestionsService {
 }
 
 extension DailySuggestionsService: SuggestionsService {
+    var hasCachedSuggestions: Bool {
+        guard
+            let storedFlightSuggestion: DatedFlightSuggestion = storage.getValue(for: Self.flightSuggestionStorageKey),
+            Calendar.current.isDate(storedFlightSuggestion.date, inSameDayAs: dateProvider.date)
+        else { return false }
+
+        return true
+    }
+
 
     func getFlightSuggestions(_ callback: @escaping (Result<DatedFlightSuggestion, Error>) -> Void) {
         guard
