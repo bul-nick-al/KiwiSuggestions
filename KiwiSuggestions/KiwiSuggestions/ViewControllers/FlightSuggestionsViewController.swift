@@ -102,6 +102,8 @@ class FlightSuggestionsViewController: NiblessViewController {
         view.addSubview(collectionView)
         view.addSubview(loaderView)
 
+        loaderView.style = .large
+
         loaderView.centerInSuperview()
         imageView.edgesToSuperview()
         collectionView.edgesToSuperview()
