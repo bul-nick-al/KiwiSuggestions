@@ -26,6 +26,7 @@
 		596A76F526661946006C36EE /* Location.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 596A76F326661946006C36EE /* Location.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		596A76F82666278F006C36EE /* CurrentDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A76F72666278F006C36EE /* CurrentDateProvider.swift */; };
 		596A76FA266627AB006C36EE /* CurrentLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A76F9266627AB006C36EE /* CurrentLocationProvider.swift */; };
+		596A76FC266638D2006C36EE /* VerticalDragTransitionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A76FB266638D2006C36EE /* VerticalDragTransitionDriver.swift */; };
 		5984C1F726619A87005945EB /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 5984C1F626619A87005945EB /* TinyConstraints */; };
 		59E36305265D717A00BB1A4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E36304265D717A00BB1A4B /* AppDelegate.swift */; };
 		59E36307265D717A00BB1A4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E36306265D717A00BB1A4B /* SceneDelegate.swift */; };
@@ -88,6 +89,7 @@
 		596A76F326661946006C36EE /* Location.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Location.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A76F72666278F006C36EE /* CurrentDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDateProvider.swift; sourceTree = "<group>"; };
 		596A76F9266627AB006C36EE /* CurrentLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationProvider.swift; sourceTree = "<group>"; };
+		596A76FB266638D2006C36EE /* VerticalDragTransitionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalDragTransitionDriver.swift; sourceTree = "<group>"; };
 		59E36301265D717A00BB1A4B /* KiwiSuggestions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiwiSuggestions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E36304265D717A00BB1A4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59E36306265D717A00BB1A4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				59267D892663C54100B8812B /* TransitionDelegate.swift */,
 				596A7689266586A9006C36EE /* ZoomFlowLayout.swift */,
 				596A76F9266627AB006C36EE /* CurrentLocationProvider.swift */,
+				596A76FB266638D2006C36EE /* VerticalDragTransitionDriver.swift */,
 			);
 			path = Auxiliary;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				596A767C266505CC006C36EE /* FlightBlurredCardView.swift in Sources */,
 				596A767A2665054A006C36EE /* TitledLabel.swift in Sources */,
 				59E36305265D717A00BB1A4B /* AppDelegate.swift in Sources */,
+				596A76FC266638D2006C36EE /* VerticalDragTransitionDriver.swift in Sources */,
 				59267D882663BB6B00B8812B /* FlightFullDetailsViewController.swift in Sources */,
 				596A76FA266627AB006C36EE /* CurrentLocationProvider.swift in Sources */,
 				59E36307265D717A00BB1A4B /* SceneDelegate.swift in Sources */,
