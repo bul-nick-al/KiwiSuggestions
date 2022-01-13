@@ -14,17 +14,19 @@ import API
 import CoreLocation
 import Location
 
-class FlightSuggestionsViewController: NiblessViewController {
+public class FlightSuggestionsViewController: NiblessViewController,
+UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
 
     // MARK: - Properties
 
-    var selectedIndexPath: IndexPath?
+    public var selectedIndexPath: IndexPath?
 
     // MARK: Dependencies
+    
+    
+    private let dependenies: FlightSuggestionsViewControllerDependencies
+    private let routers: FlightSuggestionsRoutes
 
-    private let locationProvider: CurrentLocationProvider
-    private let suggestionService: SuggestionsService
-    private let locationManager: LocationService
 
     // MARK: - Data
 
@@ -41,13 +43,9 @@ class FlightSuggestionsViewController: NiblessViewController {
 
     private let cellIdentifier = "Cell"
 
-    // MARK: Transition delegate
-
-    private let transitionDelegate = CardTransitionDelegate()
-
     // MARK: Typealias
 
-    typealias FlightCardCollectionView = ContainerCollectionCell<FlightBlurredCardView>
+    public typealias FlightCardCollectionView = ContainerCollectionCell<FlightBlurredCardView>
 
     // MARK: UI
 
@@ -68,7 +66,7 @@ class FlightSuggestionsViewController: NiblessViewController {
         return loaderView
     }()
 
-    lazy var collectionView: UICollectionView = {
+    public lazy var collectionView: UICollectionView = {
         let collectionViewLayout = ZoomFlowLayout(itemHeight: itemSize.height, itemWidthMultiplier: itemWidthMultiplier)
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
@@ -84,18 +82,16 @@ class FlightSuggestionsViewController: NiblessViewController {
     // MARK: - Init
 
     public init(
-        locationProvider: CurrentLocationProvider,
-        suggestionService: SuggestionsService,
-        locationManager: LocationService
+        dependenies: FlightSuggestionsViewControllerDependencies,
+        routers: FlightSuggestionsRoutes
     ) {
-        self.locationProvider = locationProvider
-        self.suggestionService = suggestionService
-        self.locationManager = locationManager
+        self.dependenies = dependenies
+        self.routers = routers
 
         super.init()
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         view.addSubview(imageView)
@@ -114,11 +110,11 @@ class FlightSuggestionsViewController: NiblessViewController {
     private func start() {
         loaderView.startAnimating()
 
-        if suggestionService.hasCachedSuggestions { getFlightSuggestions() }
-        else { locationManager.getLocation { [weak self] in
+        if dependenies.suggestionService.hasCachedSuggestions { getFlightSuggestions() }
+        else { dependenies.locationManager.getLocation { [weak self] in
             switch $0 {
             case .success(let location):
-                self?.locationProvider.location = location
+                self?.dependenies.locationProvider.location = location
             case .failure:
                 ()
             }
@@ -128,7 +124,7 @@ class FlightSuggestionsViewController: NiblessViewController {
     }
 
     private func getFlightSuggestions() {
-        suggestionService.getFlightSuggestions { [weak self] in
+        dependenies.suggestionService.getFlightSuggestions { [weak self] in
             switch $0 {
             case .success(let success):
                 self?.loaderView.stopAnimating()
@@ -186,14 +182,11 @@ class FlightSuggestionsViewController: NiblessViewController {
         )
     }
 
-}
-
-extension FlightSuggestionsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return flights.count
     }
 
-    func collectionView(
+    public func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
@@ -201,7 +194,7 @@ extension FlightSuggestionsViewController: UICollectionViewDelegateFlowLayout, U
         itemSize
     }
 
-    func collectionView(
+    public func collectionView(
         _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
@@ -214,7 +207,7 @@ extension FlightSuggestionsViewController: UICollectionViewDelegateFlowLayout, U
         return cell
     }
 
-    func collectionView(
+    public func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int
@@ -222,17 +215,17 @@ extension FlightSuggestionsViewController: UICollectionViewDelegateFlowLayout, U
         sectionSpacing
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         setBackgroundImage()
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
+        routers.openFlightSuggestion(flight: flights[indexPath.item])
 
-        let viewController = FlightFullDetailsViewController()
-        viewController.transitioningDelegate = transitionDelegate
-        viewController.configure(with: flights[indexPath.item])
-        viewController.modalPresentationStyle = .custom
-        present(viewController, animated: true, completion: nil)
+//        let viewController = FlightFullDetailsViewController()
+//        viewController.configure(with: )
+//        viewController.modalPresentationStyle = .custom
+//        present(viewController, animated: true, completion: nil)
     }
 }

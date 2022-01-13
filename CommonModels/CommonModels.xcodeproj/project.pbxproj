@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D524660278F4BF40060C10E /* Transformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D52465F278F4BF40060C10E /* Transformable.swift */; };
+		1D52466C278F5E5C0060C10E /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D52466B278F5E5C0060C10E /* Combine.swift */; };
+		1D524709279024A40060C10E /* CurrentDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D524704279024A30060C10E /* CurrentDateProvider.swift */; };
+		1D52470B279024A40060C10E /* CurrentLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D524706279024A30060C10E /* CurrentLocationProvider.swift */; };
 		59267D8E266400DA00B8812B /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59267D8D266400DA00B8812B /* Configurable.swift */; };
 		59267DA02664204B00B8812B /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59267D9F2664204B00B8812B /* LocationProvider.swift */; };
 		59536DB5265EDF5300422D19 /* DailyFlightSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59536DB4265EDF5300422D19 /* DailyFlightSuggestion.swift */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D52465F278F4BF40060C10E /* Transformable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformable.swift; sourceTree = "<group>"; };
+		1D52466B278F5E5C0060C10E /* Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
+		1D524704279024A30060C10E /* CurrentDateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDateProvider.swift; sourceTree = "<group>"; };
+		1D524706279024A30060C10E /* CurrentLocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationProvider.swift; sourceTree = "<group>"; };
 		59267D8D266400DA00B8812B /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		59267D9F2664204B00B8812B /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		59536DB4265EDF5300422D19 /* DailyFlightSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFlightSuggestion.swift; sourceTree = "<group>"; };
@@ -76,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D524703279024990060C10E /* Auxiliary */ = {
+			isa = PBXGroup;
+			children = (
+				1D524704279024A30060C10E /* CurrentDateProvider.swift */,
+				1D524706279024A30060C10E /* CurrentLocationProvider.swift */,
+			);
+			path = Auxiliary;
+			sourceTree = "<group>";
+		};
 		59536DAE265ECA0800422D19 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +110,7 @@
 				59267D8D266400DA00B8812B /* Configurable.swift */,
 				59267D9F2664204B00B8812B /* LocationProvider.swift */,
 				596A7690266614F1006C36EE /* WithBoundView.swift */,
+				1D52465F278F4BF40060C10E /* Transformable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -103,6 +121,7 @@
 				596A76722665002C006C36EE /* UIImage+blurImage.swift */,
 				596A768526650BE8006C36EE /* Date.swift */,
 				596A768B26660AC5006C36EE /* UIView.swift */,
+				1D52466B278F5E5C0060C10E /* Combine.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -138,6 +157,7 @@
 		59E36366265D769200BB1A4B /* CommonModels */ = {
 			isa = PBXGroup;
 			children = (
+				1D524703279024990060C10E /* Auxiliary */,
 				596A767D26650604006C36EE /* UIKit */,
 				596A76712664FFEA006C36EE /* Extensions */,
 				59536DAF265ECA0C00422D19 /* Protocols */,
@@ -270,16 +290,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D524709279024A40060C10E /* CurrentDateProvider.swift in Sources */,
 				596A7691266614F1006C36EE /* WithBoundView.swift in Sources */,
 				59267D8E266400DA00B8812B /* Configurable.swift in Sources */,
 				596A768626650BE8006C36EE /* Date.swift in Sources */,
+				1D52466C278F5E5C0060C10E /* Combine.swift in Sources */,
 				596A768C26660AC5006C36EE /* UIView.swift in Sources */,
 				596A767F2665060D006C36EE /* ContainerCollectionCell.swift in Sources */,
+				1D52470B279024A40060C10E /* CurrentLocationProvider.swift in Sources */,
 				595AE993265D7BCD006984E9 /* Flight.swift in Sources */,
 				59536DB7265EE10500422D19 /* DateProvider.swift in Sources */,
 				596A768F266614B5006C36EE /* BaseBoundViewController.swift in Sources */,
 				596A76732665002C006C36EE /* UIImage+blurImage.swift in Sources */,
 				59267DA02664204B00B8812B /* LocationProvider.swift in Sources */,
+				1D524660278F4BF40060C10E /* Transformable.swift in Sources */,
 				59536DF1265FF8A700422D19 /* Location.swift in Sources */,
 				59536DB5265EDF5300422D19 /* DailyFlightSuggestion.swift in Sources */,
 				596A7675266503FA006C36EE /* NiblessView.swift in Sources */,

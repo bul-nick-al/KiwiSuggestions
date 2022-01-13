@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import CommonModels
 
-class CurrentLocationProvider: LocationProvider {
-    var location: Location
+public class CurrentLocationProvider: LocationProvider {
+    public var location: Location
 
-    internal init(location: Location) {
+    public init(location: Location) {
         self.location = location
     }
 }

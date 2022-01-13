@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Router/Router.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SuggestionsScreen/SuggestionsScreen.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AuthenticationScene/AuthenticationScene.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Authentication/Authentication.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:KiwiSuggestions/KiwiSuggestions.xcodeproj">
    </FileRef>
    <FileRef

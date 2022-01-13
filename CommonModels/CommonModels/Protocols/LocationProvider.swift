@@ -6,6 +6,6 @@
 //
 
 // A protocol which other parts may use to improve testability
-public protocol LocationProvider {
-    var location: Location { get }
+public protocol LocationProvider: AnyObject {
+    var location: Location { get set }
 }

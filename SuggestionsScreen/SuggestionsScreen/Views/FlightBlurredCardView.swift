@@ -8,7 +8,7 @@
 import CommonModels
 import UIKit
 
-class FlightBlurredCardView: NiblessView {
+public class FlightBlurredCardView: NiblessView {
     lazy var flightCardView = FlightCardView()
 
     let label: UILabel = {

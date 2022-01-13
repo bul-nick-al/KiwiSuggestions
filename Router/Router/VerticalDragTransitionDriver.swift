@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SuggestionsScreen
 
 class VerticalDragTransitionDriver {
 

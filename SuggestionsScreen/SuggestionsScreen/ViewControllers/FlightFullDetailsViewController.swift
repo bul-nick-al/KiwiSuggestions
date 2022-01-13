@@ -8,7 +8,7 @@
 import UIKit
 import CommonModels
 
-class FlightFullDetailsView: NiblessView {
+public class FlightFullDetailsView: NiblessView {
 
     let flightCardView = FlightCardView()
     lazy var seeFullButton: UIButton = {
@@ -59,10 +59,10 @@ class FlightFullDetailsView: NiblessView {
     }
 }
 
-class FlightFullDetailsViewController: BaseBoundViewController<FlightFullDetailsView> {
+public class FlightFullDetailsViewController: BaseBoundViewController<FlightFullDetailsView> {
     fileprivate var linkToFullDetails: URL?
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
@@ -79,9 +79,9 @@ class FlightFullDetailsViewController: BaseBoundViewController<FlightFullDetails
 }
 
 extension FlightFullDetailsViewController: Configurable {
-    typealias ConfigurationModel = Flight
+    public typealias ConfigurationModel = Flight
 
-    func configure(with flight: Flight) {
+    public func configure(with flight: Flight) {
         boundView.flightCardView.configure(with: flight)
 
         if let deepLink = flight.deepLink, let url = URL(string: deepLink) {

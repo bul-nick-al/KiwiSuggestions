@@ -6,8 +6,9 @@
 //
 
 import Foundation
-import CommonModels
 
-struct CurrentDateProvider: DateProvider {
-    var date: Date = Date()
+public struct CurrentDateProvider: DateProvider {
+    public var date: Date = Date()
+    
+    public init() {}
 }
